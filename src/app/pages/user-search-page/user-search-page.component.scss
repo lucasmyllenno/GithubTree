@@ -1,0 +1,92 @@
+@import "src/assets/styles/project-style";
+
+.content {
+  height: 90vh;
+}
+
+.card {
+  width: 550px;
+  height: 550px;
+  padding: 8vh 30px;
+  color: white;
+  border-radius: 20px;
+  background-color: $primary-color;
+}
+
+img {
+  width: 110px;
+  height: 110px;
+}
+
+.title {
+  font-family: "Helvetica", sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  color: white;
+}
+
+.subtitle {
+  font-size: medium;
+  color: white;
+}
+
+.button {
+  background-color: transparent;
+  width: 150px;
+  padding: 16px;
+  color: white;
+  border: white 1px solid;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  border: white 2px solid;
+  font-weight: bolder;
+}
+
+input {
+  text-align: center;
+}
+
+mat-form-field {
+  border-radius: 5px;
+  width: 350px;
+  font-size: large;
+}
+
+::ng-deep {
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white;
+  }
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+    color: white;
+  }
+  .mat-form-field .mat-form-field-label {
+    color: white !important;
+  }
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: white !important;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  img {
+    width: 80px;
+    height: 80px;
+  }
+  .card {
+    height: 450px;
+    width: 95vw;
+  }
+  .title {
+    font-size: x-large;
+  }
+  .subtitle {
+    font-size: small;
+  }
+  mat-form-field {
+    font-size: medium;
+    width: 80vw;
+  }
+}

@@ -1,0 +1,97 @@
+@import "../../../assets/styles/project-style";
+
+.header-style {
+  .repository-title {
+    color: $primary-color;
+    font-weight: bold;
+    font-size: medium;
+  }
+
+  .repository-subtitle {
+    color: dimgray;
+    font-size: small;
+
+    mat-icon {
+      color: gray;
+      font-size: large;
+    }
+  }
+
+  .github-icon {
+    margin-right: 16px;
+    height: 40px;
+  }
+}
+
+.description {
+  margin: 8px 0 0 0;
+
+  mat-icon {
+    color: darkgray;
+    font-size: x-large;
+  }
+}
+
+.mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel-header.mat-expanded:hover,
+.mat-expansion-panel-header.mat-expanded:focus {
+  background-color: $primary-color;
+  .repository-title {
+    color: white;
+  }
+  .repository-subtitle {
+    color: white;
+    mat-icon {
+      color: white;
+    }
+  }
+}
+
+.mat-expansion-panel-header {
+  cursor: pointer;
+}
+
+.mat-expansion-panel {
+  background-color: transparent;
+}
+
+.search-form {
+  width: 100%;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  mat-label {
+    color: #c6c2c2;
+  }
+}
+
+.choose-option {
+  min-height: 25px;
+  line-height: normal;
+  height: auto;
+  padding: 8px 16px;
+
+  .option-title {
+    font-weight: bolder;
+    color: $primary-color;
+    font-size: medium;
+  }
+
+  .option-subtitle {
+    color: gray;
+    font-size: small;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .choose-option {
+    .option-title {
+      font-size: small;
+    }
+    .option-subtitle {
+      font-size: smaller;
+    }
+  }
+}

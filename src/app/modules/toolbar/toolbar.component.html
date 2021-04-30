@@ -1,0 +1,9 @@
+<div class="toolbar" fxLayout="row" fxLayoutAlign="end center">
+	<span *ngIf="userName">
+		Olá, <strong>{{userName}}</strong>
+	</span>
+	<div *ngIf="avatarUrl">
+		<img [src]="avatarUrl" alt="Usuário"/>
+	</div>
+	<mat-icon (click)="changeUser()">swap_horiz</mat-icon>
+</div>

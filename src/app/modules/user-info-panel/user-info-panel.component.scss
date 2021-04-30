@@ -1,0 +1,39 @@
+@import "src/assets/styles/project-style";
+
+.info-card {
+  height: 80px;
+  width: 200px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background-color: $primary-color;
+  color: white;
+}
+
+.title {
+  font-size: smaller;
+}
+
+.amount {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+mat-icon {
+  color: white;
+  font-size: xx-large;
+}
+
+@media only screen and (max-width: 1080px) {
+  .info-card {
+    height: 60px;
+    width: 30vw;
+  }
+
+  .amount {
+    font-size: medium;
+  }
+
+  mat-icon {
+    font-size: x-large;
+  }
+}

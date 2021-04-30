@@ -1,0 +1,29 @@
+@import "src/assets/styles/project-style";
+
+.timeline {
+  margin-left: 30px;
+  border-left: $primary-color 5px solid;
+}
+
+.user-image {
+  border: $primary-color 5px solid;
+  margin-left: -28px;
+  border-radius: 100%;
+  margin-right: 8px;
+  width: 40px;
+  height: 40px;
+}
+
+.description-title {
+  font-size: smaller;
+}
+
+.description {
+  color: dimgray;
+  font-size: x-small;
+
+  mat-icon {
+    color: gray;
+    font-size: large;
+  }
+}

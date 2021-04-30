@@ -1,0 +1,29 @@
+<div fxFlex fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap.gt-md="16px" fxLayoutGap.lt-lg="8px">
+	<div class="info-card" fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
+		<div fxFlex fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="4px">
+			<span class="title">Repositórios</span>
+			<span class="amount">{{publicRepos}}</span>
+		</div>
+		<div fxFlex fxLayout="column" fxLayoutAlign="center end">
+			<mat-icon>integration_instructions</mat-icon>
+		</div>
+	</div>
+	<div class="info-card" fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
+		<div fxFlex fxLayout="column" fxLayoutAlign="space-between start" fxLayoutGap="4px">
+			<span class="title">Seguidores</span>
+			<span class="amount">{{followers}}</span>
+		</div>
+		<div fxFlex fxLayout="column" fxLayoutAlign="center end">
+			<mat-icon>group</mat-icon>
+		</div>
+	</div>
+	<div class="info-card" fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
+		<div fxFlex fxLayout="column" fxLayoutAlign="space-between start" fxLayoutGap="4px">
+			<span class="title">Seguindo</span>
+			<span class="amount">{{following}}</span>
+		</div>
+		<div fxFlex fxLayout="column" fxLayoutAlign="center end">
+			<mat-icon>people</mat-icon>
+		</div>
+	</div>
+</div>

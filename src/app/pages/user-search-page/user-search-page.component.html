@@ -1,0 +1,26 @@
+<div class="content" fxLayout="column" fxLayoutAlign="center center">
+	<div class="card" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="40px">
+		<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+			<img alt="GitHub" src="assets/icons/github-white.png">
+			<span class="title">Repositórios do GitHub</span>
+			<span class="subtitle">Digite um nome de usuário para listar os repositórios</span>
+		</div>
+		<div fxFlex fxLayout="column" fxLayoutAlign="center center">
+			<mat-form-field appearance="outline" floatLabel="always">
+				<mat-label>Usuário</mat-label>
+				<input [formControl]="usernameFormControl"
+					   matInput oninput="this.value = this.value.toUpperCase()"
+					   type="text">
+				<mat-icon matSuffix>person</mat-icon>
+			</mat-form-field>
+			<button
+				(click)="selectUsername()"
+				class="button"
+				fxLayout="row"
+				fxLayoutAlign="center center"
+				type="submit">
+				Prosseguir
+			</button>
+		</div>
+	</div>
+</div>

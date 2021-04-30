@@ -1,0 +1,30 @@
+<div class="timeline" fxLayout="column" fxLayoutGap="16px">
+	<div *ngFor="let commit of (commits | async); let i = index;" fxLayout="row" fxLayoutGap="4px">
+		<img [src]="userImage(commit)"
+			 alt="Usuário"
+			 class="user-image"/>
+		<div fxLayout="column">
+			<span class="description-title">{{commit?.commit?.message}}</span>
+			<div class="description" fxLayout="row wrap" fxLayoutGap="8px">
+				<div fxLayout="row" fxLayoutGap="2px">
+					<mat-icon>person</mat-icon>
+					<mat-label>
+						{{commit?.author?.login}}
+					</mat-label>
+				</div>
+				<div fxLayout="row" fxLayoutGap="2px">
+					<mat-icon>access_time</mat-icon>
+					<mat-label>
+						{{service.convertDateToLocaleString(commit?.commit?.author?.date)}}
+					</mat-label>
+				</div>
+				<div fxLayout="row" fxLayoutGap="2px">
+					<mat-icon>link</mat-icon>
+					<mat-label (click)="service.openLink(commit?.html_url)" style="cursor: pointer">
+						Abrir no GitHub
+					</mat-label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<app-toolbar
+	[avatarUrl]="(user | async)?.avatar_url"
+	[userName]="(user | async)?.name">
+</app-toolbar>
+
+<div class="content" fxFlex fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px" role="main">
+	<div fxFlex fxLayout="row">
+		<app-user-info-panel [followers]="(user | async)?.followers"
+							 [following]="(user | async)?.following"
+							 [publicGists]="(user | async)?.public_gists"
+							 [publicRepos]="(user | async)?.public_repos"
+							 fxFlex>
+		</app-user-info-panel>
+	</div>
+	<div fxFlex fxLayout.gt-md="row" fxLayout.lt-lg="column" fxLayoutGap="16px">
+		<div class="content-panel" fxFlex fxLayout="column" fxLayoutAlign="center center">
+			<h2>Repositórios</h2>
+			<app-repositories-accordion (selectRepositoryEvent)="selectRepository($event)"
+										[username]="(user | async)?.login"
+										fxFlex style="width: 100%;">
+			</app-repositories-accordion>
+		</div>
+		<div class="content-panel" fxFlex fxLayout="column" fxLayoutAlign="center center">
+			<h2>Histórico de Commits</h2>
+			<app-commits-timeline [repository]="(selectedRepository | async)"
+								  [username]="(user | async)?.login"
+								  fxFlex style="width: 100%;">
+			</app-commits-timeline>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,80 @@
+<div fxLayout="column" fxLayoutGap="8px">
+
+	<mat-form-field class="search-form" appearance="fill" fxFlex>
+		<mat-label>Pesquisar</mat-label>
+		<input [formControl]="searchFormControl"
+			   [matAutocomplete]="repositoriesAutocomplete"
+			   matInput>
+		<mat-autocomplete
+            #repositoriesAutocomplete="matAutocomplete"
+			(optionSelected)="selectRepositoryBySearch($event)"
+			[displayWith]="repositoryNameDisplayFn">
+			<mat-option *ngFor="let option of filteredRepositories | async"
+						[value]="option" class="choose-option">
+				<span [innerHTML]="repositoryNameDisplayFn(option)" class="option-title"></span>
+				<br/>
+				<span [innerHTML]="repositoryLanguageDisplayFn(option)" class="option-subtitle"></span>
+			</mat-option>
+		</mat-autocomplete>
+		<mat-icon matSuffix style="color: darkgray">search</mat-icon>
+	</mat-form-field>
+
+	<mat-accordion [multi]="false" fxHide.lt-md fxShow.gt-md>
+		<div *ngFor="let repository of (filteredRepositories | async); let i = index;">
+			<mat-expansion-panel
+				[disabled]="true"
+				[expanded]="isSelectedRepository(repository)"
+				class="mat-elevation-z0">
+				<mat-expansion-panel-header
+					(click)="selectRepository(repository)"
+					[collapsedHeight]="'70px'"
+					[expandedHeight]="'70px'"
+					class="header-style">
+					<mat-panel-title>
+						<img [src]="isSelectedRepository(repository) ? 'assets/icons/github-white.png' :
+							 'assets/icons/github.png'"
+							 alt="GitHub"
+							 class="github-icon">
+						<div fxFlex
+							 fxLayout="column"
+							 fxLayoutGap="4px">
+							<mat-label class="repository-title">
+								{{repository?.name}}
+							</mat-label>
+							<div class="repository-subtitle" fxLayout="row" fxLayoutGap="16px">
+								<div fxLayout="row" fxLayoutGap="2px">
+									<mat-icon>code</mat-icon>
+									<mat-label>
+										{{repository?.language}}
+									</mat-label>
+								</div>
+								<div fxLayout="row" fxLayoutGap="2px">
+									<mat-icon>access_time</mat-icon>
+									<mat-label>
+										Última modificação em {{service.convertDateToLocaleString(repository?.pushed_at)}}
+									</mat-label>
+								</div>
+							</div>
+							<mat-divider fxFlex></mat-divider>
+						</div>
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<mat-panel-description>
+					<div class="description" fxLayout="column" fxLayoutGap="4px">
+						<div fxLayout="row" fxLayoutGap="8px" style="padding-bottom: 8px">
+							<mat-icon>description</mat-icon>
+							<span>{{repository?.description ? repository?.description : 'Sem descrição'}}</span>
+						</div>
+						<div fxLayout="row" fxLayoutGap="8px">
+							<mat-icon>link</mat-icon>
+							<mat-label (click)="service.openLink(repository?.html_url)" style="cursor: pointer">
+								Abrir no GitHub
+							</mat-label>
+						</div>
+					</div>
+				</mat-panel-description>
+			</mat-expansion-panel>
+		</div>
+	</mat-accordion>
+
+</div>
